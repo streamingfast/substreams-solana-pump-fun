@@ -1,6 +1,6 @@
 specVersion: v0.1.0
 package:
-  name: my_project
+  name: pump-fun-substreams
   version: v0.1.0
 
 imports:
