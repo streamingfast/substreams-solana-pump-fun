@@ -1,6 +1,6 @@
 specVersion: v0.1.0
 package:
-  name: pump-fun-substreams
+  name: pump_fun_substreams
   version: v0.1.0
 
 imports:
