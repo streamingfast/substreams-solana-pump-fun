@@ -1,0 +1,42 @@
+specVersion: v0.1.0
+package:
+  name: my_project
+  version: v0.1.0
+
+imports:
+  solana: https://spkg.io/streamingfast/solana-common-v0.3.0.spkg
+
+protobuf:
+  files:
+    - program.proto
+  importPaths:
+    - ./proto
+  excludePaths:
+    - sf/substreams/rpc
+    - sf/substreams/v1
+    - sf/substreams/sink
+    - sf/substreams/index
+    - sf/substreams/index/v1
+    - instructions.proto # sol.instructions.v1 from the v0.2.0 spkg
+    - transactions.proto # sol.transactions.v1 from the v0.2.0 spkg
+    - google
+
+binaries:
+  default:
+    type: wasm/rust-v1+wasm-bindgen-shims
+    file: ./target/wasm32-unknown-unknown/release/substreams.wasm
+
+modules:
+ - name: map_program_data
+   kind: map
+   initialBlock: 298724475
+   inputs:
+   - map: solana:blocks_without_votes
+   output:
+     type: proto:substreams.v1.program.Data
+   blockFilter:
+     module: solana:program_ids_without_votes
+     query:
+       string: program:6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P
+
+network: solana-mainnet 

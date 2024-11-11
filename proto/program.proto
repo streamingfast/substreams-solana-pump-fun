@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package substreams.v1.program;
+
+message Data {
+    repeated CreateEvent create_event_list = 1;
+    repeated TradeEvent trade_event_list = 2;
+    repeated CompleteEvent complete_event_list = 3;
+    repeated SetParamsEvent set_params_event_list = 4;
+    repeated SetParams set_params_list = 5;
+    repeated Create create_list = 6;
+    repeated Buy buy_list = 7;
+    repeated Sell sell_list = 8;
+}
+message CreateEvent {
+      string name = 1;
+      string symbol = 2;
+      string uri = 3;
+      string mint = 4;
+      string bonding_curve = 5;
+      string user = 6;
+}
+message TradeEvent {
+      string mint = 1;
+      uint64 sol_amount = 2;
+      uint64 token_amount = 3;
+      bool is_buy = 4;
+      string user = 5;
+      int64 timestamp = 6;
+      uint64 virtual_sol_reserves = 7;
+      uint64 virtual_token_reserves = 8;
+      uint64 real_sol_reserves = 9;
+      uint64 real_token_reserves = 10;
+}
+message CompleteEvent {
+      string user = 1;
+      string mint = 2;
+      string bonding_curve = 3;
+      int64 timestamp = 4;
+}
+message SetParamsEvent {
+      string fee_recipient = 1;
+      uint64 initial_virtual_token_reserves = 2;
+      uint64 initial_virtual_sol_reserves = 3;
+      uint64 initial_real_token_reserves = 4;
+      uint64 token_total_supply = 5;
+      uint64 fee_basis_points = 6;
+}
+
+
+message SetParams {
+      string fee_recipient = 1;
+      uint64 initial_virtual_token_reserves = 2;
+      uint64 initial_virtual_sol_reserves = 3;
+      uint64 initial_real_token_reserves = 4;
+      uint64 token_total_supply = 5;
+      uint64 fee_basis_points = 6;
+}
+
+message Create {
+      string name = 1;
+      string symbol = 2;
+      string uri = 3;
+}
+
+message Buy {
+      uint64 amount = 1;
+      uint64 max_sol_cost = 2;
+}
+
+message Sell {
+      uint64 amount = 1;
+      uint64 min_sol_output = 2;
+}
