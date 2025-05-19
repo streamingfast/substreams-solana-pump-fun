@@ -39,3 +39,9 @@ substreams build
 ```
 substreams init
 ```
+
+## Sink into a SQL database
+
+You can directly map the output of the `map_program_data` to a SQL database using the [SQL sink](https://docs.substreams.dev/how-to-guides/sinks/sql-sink).
+
+This example also provide a `db_out` module, in case you need more control over the database insertions.

@@ -21,6 +21,7 @@ substreams-entity-change = "2"
 anchor-lang = ">=0.30.1"
 sologger_log_context = "0.1.2"
 base64 = "0.22.1"
+sha2 = "0.10"
 
 # Required so that ethabi > ethereum-types build correctly under wasm32-unknown-unknown
 [target.wasm32-unknown-unknown.dependencies]
