@@ -52,8 +52,8 @@ modules:
 network: solana-mainnet 
 
 sink:
-  module: map_program_data
+  module: db_out
   type: sf.substreams.sink.sql.v1.Service
   config:
     engine: postgres
-    #schema: "schema.sql" # Only needed when using `db_out` module.
+    schema: "schema.sql" # Only needed when using `db_out` module.
